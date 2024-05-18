@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, render_template, request, jsonify
 import pyshorteners
 
 app = Flask(__name__)
@@ -9,7 +9,7 @@ def shorten_url(url):
 
 @app.route("/")
 def index():
-    return app.send_static_file("index.html")
+    return render_template("index.html")
 
 @app.route("/shorten", methods=["POST"])
 def shorten_url_endpoint():
